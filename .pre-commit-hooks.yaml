@@ -1,0 +1,7 @@
+- id: bq-dryrun
+  name: bq-dryrun
+  description: perform dry run of sql to test validity
+  entry: bg-dryrun
+  language: python
+  language_version: python3
+  files: ".sql"

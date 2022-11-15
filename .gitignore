@@ -1,0 +1,4 @@
+.venv
+bq_dryrun.egg-info/
+build/
+dist/
