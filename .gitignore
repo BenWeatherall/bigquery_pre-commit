@@ -1,4 +1,4 @@
 .venv
-bq_dryrun.egg-info/
+bq_precommit_hooks.egg-info
 build/
 dist/
