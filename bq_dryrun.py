@@ -69,9 +69,9 @@ def findReplacePairs(args):
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="*", help="Filenames to run")
-    parser.add_argument("project", nargs="*", help="bq project")
-    parser.add_argument("region", nargs="*", help="bq region")
-    parser.add_argument("replace",
+    parser.add_argument("--project", nargs="?", help="bq project",required=True)
+    parser.add_argument("--region", nargs="?", help="bq region",required=True)
+    parser.add_argument("--replace",
                         metavar="FIND=REPLACE",
                         nargs='+',
                         help="Set a number of find and replace statements"
