@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from __future__ import annotations
 
 import argparse
@@ -55,10 +56,13 @@ class bq:
 
         return 1
 
+
 def findReplacePairs(args):
     pairs = []
     for arg in args:
-        matches = re.findall(r'^([^"=]+|"(?:\\.|[^"])*")=([^"=]+|"(?:\\.|[^"])*")$', arg)
+        matches = re.findall(
+            r'^([^"=]+|"(?:\\.|[^"])*")=([^"=]+|"(?:\\.|[^"])*")$', arg
+        )
         if len(matches) == 2:
             pairs.append((matches[0], matches[1]))
         else:
@@ -66,19 +70,22 @@ def findReplacePairs(args):
 
     return pairs
 
+
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="*", help="Filenames to run")
-    parser.add_argument("--project", nargs="?", help="bq project",required=True)
-    parser.add_argument("--region", nargs="?", help="bq region",required=True)
-    parser.add_argument("--replace",
-                        metavar="FIND=REPLACE",
-                        nargs='+',
-                        help="Set a number of find and replace statements"
-                             "(if either value includes a space, define "
-                             "it with double quotes: "
-                             'replaceMe="replace Me". Note that '
-                             "values are always treated as strings.")
+    parser.add_argument("--project", nargs="?", help="bq project", required=True)
+    parser.add_argument("--region", nargs="?", help="bq region", required=True)
+    parser.add_argument(
+        "--replace",
+        metavar="FIND=REPLACE",
+        nargs="+",
+        help="Set a number of find and replace statements"
+        "(if either value includes a space, define "
+        "it with double quotes: "
+        'replaceMe="replace Me". Note that '
+        "values are always treated as strings.",
+    )
     args = parser.parse_args(argv)
 
     # Set Up Big Query
