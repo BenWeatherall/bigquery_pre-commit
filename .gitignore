@@ -1,4 +1,4 @@
 .venv
-bq_precommit_hooks.egg-info
+*.egg-info
 build/
 dist/
