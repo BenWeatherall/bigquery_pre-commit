@@ -1,4 +1,7 @@
 .venv
 *.egg-info
+.tox/
+.coverage
 build/
 dist/
+__pycache__/
